@@ -29,6 +29,8 @@ public class BooksEntity implements Serializable {
      */
     private String pushingDate ;
 
+    private double price;
+    
     /**
      * Default constructor, not used
      */
@@ -41,10 +43,11 @@ public class BooksEntity implements Serializable {
      * @param author the author of the book
      * @param date  the publishing date
      */
-    public BooksEntity(String title, String author, String date) {
+    public BooksEntity(String title, String author, String date, double price) {
         this.title = title ;
         this.author = author ;
         this.pushingDate = date ;
+        this.price = price;
     }
     
     /**
@@ -95,6 +98,12 @@ public class BooksEntity implements Serializable {
         this.pushingDate = date ;
     }
     
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    public double getPrice() {
+        return this.price;
+    }
     @Override
     public int hashCode() {
         int hash = 0;

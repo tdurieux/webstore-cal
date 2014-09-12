@@ -29,7 +29,7 @@
             if (session.getAttribute("userPermission") == null) {
 %>
                 <i class="icon-floppy"></i><a href="register.jsp">Register</a> /
-                <a href="login.jsp">Login</a></p>
+                <a href="login.jsp">Login</a>
 <%
             // admin user
             } else if (1 == (Integer) session.getAttribute("userPermission")) {
@@ -37,11 +37,12 @@
                 <i class="icon-tag"></i><a href="addBookForm.jsp">Add a new Book</a> - 
                 <i class="icon-alert"></i><a href="commands.jsp">Commands</a>
 <%
-            // default user
-            } else if (0 == (Integer) session.getAttribute("userPermission")) {
+            }
+            if (session.getAttribute("userPermission") != null) {
 %>
-
+                <i class="icon-floppy"></i> <a href="AddUserServlet?action=logout">Logout</a>
 <%
             }
 %>
+            </p>
             <hr/>

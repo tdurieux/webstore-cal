@@ -34,7 +34,7 @@
             output += "<tr colspan=\"3\"><td>Command n°"+c.getId()+" by " + c.getUsername() +"</td></tr>" ;
             for(String b : c.getCommand()) {
                 BooksEntity book = books.getBook(b) ;
-                output += "<tr><td>" + book.getId() + "</td><td>"+book.getAuthor()+"</td><td>"+book.getDate()+"</td></tr>" ;
+                output += "<tr><td>" + book.getId() + "</td><td>"+book.getAuthor()+"</td><td>"+book.getDate()+"</td><td>"+book.getPrice()+"</td></tr>" ;
             }
             output += "<tr><td class=\"empty_row\"colspan=\"3\"></tr>" ;
         }

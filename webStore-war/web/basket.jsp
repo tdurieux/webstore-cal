@@ -30,10 +30,10 @@
             out.println("<form class=\"row center_text\" action=\"AddBooks2BasketServlet\" method=\"GET\"><input type=\"hidden\" name=\"action\" value=\"removeBooks\" /><div class=\"medium default btn pretty\"><input type=\"submit\" value=\"Delete all books\"/></div></form>");
             out.println("<form class=\"row center_text\" action=\"AddBooks2BasketServlet\" method=\"GET\"><input type=\"hidden\" name=\"action\" value=\"removeSelectedBooks\" /><div class=\"medium default btn pretty\"><input type=\"submit\" value=\"Remove selected books\"/></div>");
       
-            String output = "<table id=\"tbl_list_books\"><tr><th>Title</th><th>Author</th><th>Date</th><th>Action</th></tr>" ;
+            String output = "<table id=\"tbl_list_books\"><tr><th>Title</th><th>Author</th><th>Date</th><th>Price</th><th>Action</th></tr>" ;
             for(String b : booksCommand) {
                 BooksEntity book = books.getBook(b) ;
-                output += "<tr><td>" + book.getId() + "</td><td>"+book.getAuthor()+"</td><td>"+book.getDate()+"</td><td><input type=\"checkbox\" name=\"book\" value=\""+book.getId()+"\"></td></tr>" ;
+                output += "<tr><td>" + book.getId() + "</td><td>"+book.getAuthor()+"</td><td>"+book.getDate()+"</td><td>" + book.getPrice() + "</td><td><input type=\"checkbox\" name=\"book\" value=\""+book.getId()+"\"></td></tr>" ;
             }
             output += "</table></form>" ;
             out.println(output);

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import books.BooksItf ;
+import javax.servlet.http.HttpSession;
 
 /**
  * Control the Books creation requests
@@ -37,6 +38,7 @@ public class AddBooksServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession(true);
         PrintWriter out = response.getWriter();
         String relPath = request.getContextPath();
         try {
@@ -44,19 +46,20 @@ public class AddBooksServlet extends HttpServlet {
                 String title = request.getParameter("book_title");
                 String author = request.getParameter("book_author");
                 String date = request.getParameter("book_date") ;
-                if (title.equals("") || author.equals("") || date.equals("")) {
+                String price = request.getParameter("book_price");
+                if (title.equals("") || author.equals("") || date.equals("") ||  !price.matches("\\d+(\\.\\d+)?")) {
                     String sentence = "<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"danger alert\">Fields can not be empty !</li></div></div>" ;
-                    out.println(new PageWeb(sentence).toString());
+                    out.println(new PageWeb(sentence, session).toString());
                 } else {
                     String sentence = "<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"secondary alert\">" + request.getParameter("book_title") + " has been added !</li></div></div>";
-                    out.println(new PageWeb(sentence).toString());
-                    books.addBook(request.getParameter("book_title"), request.getParameter("book_author"), request.getParameter("book_date").toString());
+                    out.println(new PageWeb(sentence, session).toString());
+                    books.addBook(request.getParameter("book_title"), request.getParameter("book_author"), request.getParameter("book_date").toString(), Double.parseDouble(price));
                 }
             } else {
-                out.println(new PageWeb("<p class=\"center_text\"><i class=\"icon-info-circled\"></i>3 books has been added !</p>").toString());
-                books.addBook("Le seigneur des anneaux", "J. R. R. Tolkien", "1954");
-                books.addBook("Harry Potter", "J. K. Rowling", "1997");
-                books.addBook("Ange et demon", "Dan Brown", "2000");
+                out.println(new PageWeb("<p class=\"center_text\"><i class=\"icon-info-circled\"></i>3 books has been added !</p>", session).toString());
+                books.addBook("Le seigneur des anneaux", "J. R. R. Tolkien", "1954", 1.0);
+                books.addBook("Harry Potter", "J. K. Rowling", "1997", 10.10);
+                books.addBook("Ange et demon", "Dan Brown", "2000", 465746.0);
             }
         } finally {            
             out.close();

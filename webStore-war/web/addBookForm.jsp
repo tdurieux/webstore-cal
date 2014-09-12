@@ -48,6 +48,10 @@
                 <span class="adjoined xnarrow">Year</span>
                 <input class="xwide text input" type="text" name="book_date" required="required" placeholder="Publication date" />
             </li>
+            <li class="prepend field">
+                <span class="adjoined xnarrow">Price</span>
+                <input class="xwide text input" type="text" name="book_price" required="required" placeholder="price" />
+            </li>
         </ul>
 
         <div class="centered five columns">

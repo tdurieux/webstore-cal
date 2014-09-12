@@ -54,20 +54,20 @@ public class AddUserServlet extends HttpServlet {
                 String country = request.getParameter("country");
                 String phone = request.getParameter("phone");
                 if (pseudo.equals("") || password.equals("") || permission.equals("")) {
-                    out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"danger alert\">Fields can not be empty !</li></div></div>").toString()); 
+                    out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"danger alert\">Fields can not be empty !</li></div></div>", session).toString()); 
                 } else {
                     String permission_lvl = "user" ;
                     if (permission.equals("1")) {
                         permission_lvl = "admin" ;
                     }
-                    out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"secondary alert\">"+pseudo + " added as " + permission_lvl + " !</li></div></div>").toString());   
+                    out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"secondary alert\">"+pseudo + " added as " + permission_lvl + " !</li></div></div>", session).toString());   
                     users.addUser(pseudo, password, permission, fname,  email,  address,  city,  pcode,  country,  phone);
                 }
-            } if ("login".equals(request.getParameter("action"))) { 
+            } else if ("login".equals(request.getParameter("action"))) { 
                 String pseudo = request.getParameter("pseudo");
                 String password = request.getParameter("password");
                 if (pseudo.equals("") || password.equals("")) {
-                    out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"danger alert\">Fields can not be empty !</li></div></div>").toString()); 
+                    out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"danger alert\">Fields can not be empty !</li></div></div>", session).toString()); 
                 } else {
                     if (users.userExists(pseudo, password)) {
                         session.setAttribute("userPseudo", pseudo);
@@ -76,11 +76,15 @@ public class AddUserServlet extends HttpServlet {
                         } else {
                             session.setAttribute("userPermission", 0);
                         }
-                        out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"secondary alert\">You are now connected as "+pseudo+" !</li></div></div>").toString());
+                        out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"secondary alert\">You are now connected as "+pseudo+" !</li></div></div>", session).toString());
                     } else {
-                        out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"danger alert\">Wrong login or password !</li></div></div>").toString()); 
+                        out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"danger alert\">Wrong login or password !</li></div></div>", session).toString()); 
                     }
                 }
+            } else if ("logout".equals(request.getParameter("action"))) { 
+                session.setAttribute("userPseudo", null);
+                session.setAttribute("userPermission", null);
+                out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"secondary alert\">You are now unconnected !</li></div></div>", session).toString());
             }
         } finally {            
             out.close();
