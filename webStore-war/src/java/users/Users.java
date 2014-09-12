@@ -26,9 +26,16 @@ public class Users implements UsersItf{
      * @param pseudo the user's name
      * @param password the user's password
      * @param permission permission level to this user
+     * @param fname
+     * @param email
+     * @param address
+     * @param city
+     * @param pcode
+     * @param country
+     * @param phone
      */
-    public void addUser(String pseudo, String password, String permission) {
-        UsersEntity.persist(new UsersEntity(pseudo, password, permission));
+    public void addUser(String pseudo, String password, String permission, String fname, String email, String address, String city, String pcode, String country, String phone) {
+        UsersEntity.persist(new UsersEntity(pseudo, password, permission, fname,  email,  address,  city,  pcode,  country,  phone));
     }
     
     /**

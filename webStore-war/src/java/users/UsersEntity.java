@@ -19,6 +19,13 @@ public class UsersEntity implements Serializable {
     private String pseudo ;
     private String password ;
     private String permissionLevel ;
+    private String fname;
+    private String email;
+    private String address;
+    private String city;
+    private String pcode;
+    private String country;
+    private String phone;
 
     /**
      * Constructor, not used
@@ -32,10 +39,17 @@ public class UsersEntity implements Serializable {
      * @param password password user
      * @param permission permission level, admin or user
      */
-    UsersEntity(String pseudo, String password, String permission) {
+    UsersEntity(String pseudo, String password, String permission, String fname, String email, String address, String city, String pcode, String country, String phone) {
         this.pseudo = pseudo ;
         this.password = password ;
         this.permissionLevel = permission ;
+        this.fname = fname;
+        this.email = email;
+        this.address = address;
+        this.city = city;
+        this.pcode = pcode;
+        this.country = country;
+        this.phone = phone;
     }
     
     /**
@@ -53,6 +67,63 @@ public class UsersEntity implements Serializable {
     public String getPseudo() {
         return pseudo;
     }
+    
+    /**
+     * Get the user's full name
+     * @return the fullname
+     */
+    public String getFullName() {
+        return fname;
+    }
+    
+    /**
+     * Get the user's email
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+    
+    /**
+     * Get the user's address
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
+    
+    /**
+     * Get the user's city
+     * @return the city
+     */
+    public String getCity() {
+        return city;
+    }
+    
+    /**
+     * Get the user's postal code
+     * @return the postal code
+     */
+    public String getPostalCode() {
+        return pcode;
+    }
+    
+    /**
+     * Get the user's country
+     * @return the country
+     */
+    public String getCountry() {
+        return country;
+    }
+    
+    /**
+     * Get the user's phone number
+     * @return the phone number
+     */
+    public String getPhone() {
+        return phone;
+    }
+    
     
     @Override
     public int hashCode() {

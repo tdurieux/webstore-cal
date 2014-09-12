@@ -11,12 +11,40 @@
         <h6>- Create a new user -</h6>
         <input type="hidden" name="action" value="addUser" />
         <li class="prepend field">
-            <span class="adjoined xnarrow">Pseudo</span>
-            <input class="xwide text input" type="text" name="pseudo" required="required" placeholder="Pseudo"/>
+            <span class="adjoined normal">Pseudo</span>
+            <input class="wide text input" type="text" name="pseudo" required="required" placeholder="Pseudo"/>
         </li>
         <li class="prepend field">
-            <span class="adjoined xnarrow">Pwd</span>
-            <input class="xwide text input" type="password" name="password" required="required" placeholder="Password"/>
+            <span class="adjoined normal">Pwd</span>
+            <input class="wide text input" type="password" name="password" required="required" placeholder="Password"/>
+        </li>
+        <li class="prepend field">
+            <span class="adjoined normal">Full name</span>
+            <input class="wide text input" type="text" name="fname" required="required" placeholder="fname"/>      
+        </li>
+        <li class="prepend field">
+            <span class="adjoined normal">E-mail</span>
+            <input class="wide text input" type="text" name="email" required="required" placeholder="email"/>
+        </li>
+        <li class="prepend field">
+            <span class="adjoined normal">Address</span>
+            <input class="wide text input" type="text" name="address" required="required" placeholder="address"/>
+        </li>
+        <li class="prepend field">
+            <span class="adjoined normal">City</span>
+            <input class="wide text input" type="text" name="city" required="required" placeholder="city"/>          
+        </li>
+        <li class="prepend field">
+            <span class="adjoined normal">Postal Code</span>
+            <input class="wide text input" type="text" name="pcode" required="required" placeholder="pcode"/>
+        </li>
+        <li class="prepend field">
+            <span class="adjoined normal">Country</span>
+            <input class="wide text input" type="text" name="country" required="required" placeholder="country"/>
+        </li>
+        <li class="prepend field">
+            <span class="adjoined normal">Phone number</span>
+            <input class="wide text input" type="text" name="phone" required="required" placeholder="phone"/>
         </li>
         Available only for tests... Should be only for admins
         <div class="field">
