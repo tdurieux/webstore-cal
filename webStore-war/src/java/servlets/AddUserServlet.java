@@ -46,6 +46,13 @@ public class AddUserServlet extends HttpServlet {
                 String pseudo = request.getParameter("pseudo");
                 String password = request.getParameter("password");
                 String permission = request.getParameter("userPermission") ;
+                String fname = request.getParameter("fname");
+                String email= request.getParameter("email");
+                String address = request.getParameter("address");
+                String city = request.getParameter("city");
+                String pcode = request.getParameter("pcode");
+                String country = request.getParameter("country");
+                String phone = request.getParameter("phone");
                 if (pseudo.equals("") || password.equals("") || permission.equals("")) {
                     out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"danger alert\">Fields can not be empty !</li></div></div>").toString()); 
                 } else {
@@ -54,7 +61,7 @@ public class AddUserServlet extends HttpServlet {
                         permission_lvl = "admin" ;
                     }
                     out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"secondary alert\">"+pseudo + " added as " + permission_lvl + " !</li></div></div>").toString());   
-                    users.addUser(pseudo, password, permission);
+                    users.addUser(pseudo, password, permission, fname,  email,  address,  city,  pcode,  country,  phone);
                 }
             } if ("login".equals(request.getParameter("action"))) { 
                 String pseudo = request.getParameter("pseudo");
