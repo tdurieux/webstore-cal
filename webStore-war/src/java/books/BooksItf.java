@@ -15,7 +15,7 @@ public interface BooksItf {
      * @param author the author of the book
      * @param date  the publishing date
      */
-    public void addBook(String title,String author,String date);
+    public void addBook(String title,String author,String date, double price);
     
     /**
      * Used to return a bookEntity entry

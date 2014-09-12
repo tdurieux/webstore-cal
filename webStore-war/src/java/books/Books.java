@@ -27,8 +27,8 @@ public class Books implements BooksItf{
     public Books() {
     }
 
-    public void addBook(String title, String author, String date) {
-        BooksEntity.persist(new BooksEntity(title, author, date));
+    public void addBook(String title, String author, String date, double price) {
+        BooksEntity.persist(new BooksEntity(title, author, date, price));
     }
     
     public BooksEntity getBook(String name) {
