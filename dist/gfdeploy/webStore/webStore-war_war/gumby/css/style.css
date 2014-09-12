@@ -1,0 +1,62 @@
+/*
+We highly recommend you use SASS and write your custom styles in sass/_custom.scss.
+However, this blank file is available if you prefer
+*/
+
+/* Global */
+#header {
+    text-align : center ;
+}
+
+#container {
+    margin-top: 10px;
+}
+
+.center_text {
+    text-align: center ;
+}
+
+input[type=submit], .delete , .download , .rename {
+    cursor : pointer ;
+}
+
+.hiddenBooks {
+    display : none ;
+}
+
+.button_display {
+    cursor : pointer ;
+}
+
+/* List books */
+#tbl_list_books {
+    margin : auto ;
+    border-collapse: collapse ;
+}
+
+#tbl_list_books td {
+    border : 2px solid #A0A0A0 ;
+}
+#tbl_list_books tr:hover {
+    background-color: #F5F5F5 ;
+}
+
+.empty_row {
+    border : none ;
+    background : #A0A0A0 ;
+}
+#tbl_list_books th {
+    font-style: italic ;
+    font-size: 0.7em ;
+    text-align: center ;
+}
+
+#tbl_list_books td, #tbl_list_dir th {
+    padding : 2px 7px ;
+}
+
+/* Footer */
+#footer p {
+    text-align: center ;
+    font-size: 0.7em ;
+}
