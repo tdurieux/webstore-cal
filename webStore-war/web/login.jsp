@@ -16,7 +16,7 @@
         </li>
         <li class="prepend field">
             <span class="adjoined xnarrow">Pwd</span>
-            <input class="xwide text input" type="text" name="password" required="required" placeholder="Password"/>
+            <input class="xwide text input" type="password" name="password" required="required" placeholder="Password"/>
         </li>
     </ul>
     

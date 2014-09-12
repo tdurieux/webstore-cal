@@ -16,7 +16,7 @@
         </li>
         <li class="prepend field">
             <span class="adjoined normal">Pwd</span>
-            <input class="wide text input" type="text" name="password" required="required" placeholder="Password"/>
+            <input class="wide text input" type="password" name="password" required="required" placeholder="Password"/>
         </li>
         <li class="prepend field">
             <span class="adjoined normal">Full name</span>
