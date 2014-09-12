@@ -1,5 +1,7 @@
 package display;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Create the a web page template
  * @author Julien Duribreux, Dufour Justin
@@ -9,6 +11,9 @@ public class PageWeb {
      * Content to display inside the template page
      */
     private String content ;
+    
+    private HttpSession session;
+    
     /**
      * Top of HTML page code
      */
@@ -29,7 +34,7 @@ public class PageWeb {
             "                <h6 class=\"centered sixteen colums\">WebStore J2EE</h6>\n" +
             "            </div>\n" +
             "            <hr/>\n" +
-            "            <p class=\"row center_text\"><i class=\"icon-home\"></i><a href=\"index.jsp\">Home</a><i class=\"icon-tag\"></i><a href=\"addBookForm.jsp\">Add a new Book</a> - <i class=\"icon-basket\"></i><a href=\"listBooks.jsp\">Buy Books</a> - <i class=\"icon-attach\"></i><a href=\"basket.jsp\">Basket</a> - <i class=\"icon-alert\"></i><a href=\"commands.jsp\">Commands</a> - <i class=\"icon-floppy\"></i><a href=\"register.jsp\">Register</a> / <a href=\"login.jsp\">Login</a></p><hr/>" ;
+            "            " ;
     
     /**
      * Bottom of HTML page code
@@ -50,9 +55,37 @@ public class PageWeb {
     /**
      * Constructor
      * @param content the content to display
+     * @param session the current session
+     */
+    public PageWeb(String content,HttpSession session) {
+        this.content = content ;
+        this.session = session;
+        
+        this.top += "<p class=\"row center_text\"><i class=\"icon-home\"></i><a href=\"index.jsp\">Home</a>"
+                + "<i class=\"icon-basket\"></i><a href=\"listBooks.jsp\">Buy Books</a> - "
+                + "<i class=\"icon-attach\"></i><a href=\"basket.jsp\">Basket</a>";
+        // unconnected user
+        if (session.getAttribute("userPermission") == null) {
+            this.top += "<i class=\"icon-floppy\"></i><a href=\"register.jsp\">Register</a> /"
+            +"<a href=\"login.jsp\">Login</a>";
+        // admin user
+        } else if (1 == (Integer) session.getAttribute("userPermission")) {
+            this.top += "<i class=\"icon-tag\"></i><a href=\"addBookForm.jsp\">Add a new Book</a> - ";
+            this.top += "<i class=\"icon-alert\"></i><a href=\"commands.jsp\">Commands</a>";
+        }
+        if (session.getAttribute("userPermission") != null) {
+            this.top += "<i class=\"icon-floppy\"></i> <a href=\"AddUserServlet?action=logout\">Logout</a>";
+        }
+        this.top += "</p><hr/>";
+    }
+    
+    /**
+     * Constructor
+     * @param content the content to display
      */
     public PageWeb(String content) {
         this.content = content ;
+        this.top += "<p class=\"row center_text\"><i class=\"icon-home\"></i><a href=\"index.jsp\">Home</a><i class=\"icon-tag\"></i><a href=\"addBookForm.jsp\">Add a new Book</a> - <i class=\"icon-basket\"></i><a href=\"listBooks.jsp\">Buy Books</a> - <i class=\"icon-attach\"></i><a href=\"basket.jsp\">Basket</a> - <i class=\"icon-alert\"></i><a href=\"commands.jsp\">Commands</a> - <i class=\"icon-floppy\"></i><a href=\"register.jsp\">Register</a> / <a href=\"login.jsp\">Login</a></p><hr/>";
     }
     
     /**

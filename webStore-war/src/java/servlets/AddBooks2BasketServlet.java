@@ -53,7 +53,7 @@ public class AddBooks2BasketServlet extends HttpServlet {
                     out.println(new PageWeb(sentence).toString());
                 } else {
                     String sentence = "<div class=\"row center_text\"><div class=\"centered six columns\"><li class=\"secondary alert\">Books added to your basket, check it to validate your command !</li></div></div>" ;
-                    out.println(new PageWeb(sentence).toString());
+                    out.println(new PageWeb(sentence, session).toString());
                     try { // add a new book in the basket
                         String[] old_books = (String[]) session.getAttribute("booksCommand") ;
                         String[] new_books = listOfBooks ;
@@ -88,11 +88,11 @@ public class AddBooks2BasketServlet extends HttpServlet {
                 String sentence = "<div class=\"row center_text\"><div class=\"centered six columns\"><li class=\"secondary alert\">Command process started !</li></div></div>" ;
                 String[] listOfBooks = (String[]) session.getAttribute("booksCommand");
                 String username = (String) session.getAttribute("userPseudo") ;
-                out.println(new PageWeb(sentence).toString());
+                out.println(new PageWeb(sentence, session).toString());
                 commands.addCommand(listOfBooks, username);
                 session.removeAttribute("booksCommand");
             } else {
-                out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><i class=\"icon-home\"></i><a href=\"index.jsp\">Home</a><br/>Nothing to do there !</div></div>").toString());
+                out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><i class=\"icon-home\"></i><a href=\"index.jsp\">Home</a><br/>Nothing to do there !</div></div>", session).toString());
             }
         } finally {            
             out.close();
