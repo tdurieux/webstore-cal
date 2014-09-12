@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import display.PageWeb ;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.servlet.http.HttpSession;
 
 /**
  * Used only to display books available
@@ -41,9 +42,10 @@ public class ListBooksServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            HttpSession session = request.getSession(true);
             List<BooksEntity> list = books.listBooks() ;
             String list2String = new ListBooks(list).toString() ;
-            out.println(new PageWeb(list2String).toString());
+            out.println(new PageWeb(list2String, session).toString());
         } finally {            
             out.close();
         }
