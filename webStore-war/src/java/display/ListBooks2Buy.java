@@ -29,9 +29,9 @@ public class ListBooks2Buy {
     public String toString() {
         String output = "<form action=\"AddBooks2BasketServlet\" method=\"GET\">" ;
         output += "<input type=\"hidden\" name=\"action\" value=\"buyBooks\" />" ;
-        output += "<table id=\"tbl_list_books\"><tr><th>Title</th><th>Author</th><th>Date</th><th>Buy</th></tr>" ;
+        output += "<table id=\"tbl_list_books\"><tr><th>Title</th><th>Author</th><th>Date</th><th>Price</th><th>Buy</th></tr>" ;
         for(BooksEntity b : this.booksList) {
-            output += "<tr><td>" + b.getId() + "</td><td>" + b.getAuthor() + "</td><td>" + b.getDate() + "</td><td><input type=\"checkbox\" name=\"book\" value=\""+b.getId()+"\"></td></tr>" ;
+            output += "<tr><td>" + b.getId() + "</td><td>" + b.getAuthor() + "</td><td>" + b.getDate() + "</td><td>" + b.getPrice()+ "</td><td><input type=\"checkbox\" name=\"book\" value=\""+b.getId()+"\"></td></tr>" ;
         }
         output += "</table>" ;
         output +=   "<div style=\"margin-top:10px;\" class=\"row center_text\">\n" +

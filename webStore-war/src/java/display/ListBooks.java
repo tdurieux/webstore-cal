@@ -30,9 +30,9 @@ public class ListBooks {
     public String toString() {
         String output = "" ;
         if (this.booksList.size() > 0) {
-            output += "<table id=\"tbl_list_books\"><tr><th>Title</th><th>Author</th><th>Date</th></tr>" ;
+            output += "<table id=\"tbl_list_books\"><tr><th>Title</th><th>Author</th><th>Date</th><th>Price</th></tr>" ;
             for(BooksEntity b : this.booksList) {
-                output += "<tr><td>" + b.getId() + "</td><td>" + b.getAuthor() + "</td><td>" + b.getDate() + "</td></tr>" ;
+                output += "<tr><td>" + b.getId() + "</td><td>" + b.getAuthor() + "</td><td>" + b.getDate() + "</td><td>" + b.getPrice()+ "</td></tr>" ;
             }
             output += "</table>" ;
         } else {
