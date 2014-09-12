@@ -20,31 +20,31 @@
         </li>
         <li class="prepend field">
             <span class="adjoined normal">Full name</span>
-            <input class="wide text input" type="text" name="fname" required="required" placeholder="fname"/>      
+            <input class="wide text input" type="text" name="fname" required="required" placeholder="Full name"/>      
         </li>
         <li class="prepend field">
             <span class="adjoined normal">E-mail</span>
-            <input class="wide text input" type="text" name="email" required="required" placeholder="email"/>
+            <input class="wide text input" type="text" name="email" required="required" placeholder="E-mail"/>
         </li>
         <li class="prepend field">
             <span class="adjoined normal">Address</span>
-            <input class="wide text input" type="text" name="address" required="required" placeholder="address"/>
+            <input class="wide text input" type="text" name="address" required="required" placeholder="Address"/>
         </li>
         <li class="prepend field">
             <span class="adjoined normal">City</span>
-            <input class="wide text input" type="text" name="city" required="required" placeholder="city"/>          
+            <input class="wide text input" type="text" name="city" required="required" placeholder="City"/>          
         </li>
         <li class="prepend field">
             <span class="adjoined normal">Postal Code</span>
-            <input class="wide text input" type="text" name="pcode" required="required" placeholder="pcode"/>
+            <input class="wide text input" type="text" name="pcode" required="required" placeholder="Postal code"/>
         </li>
         <li class="prepend field">
             <span class="adjoined normal">Country</span>
-            <input class="wide text input" type="text" name="country" required="required" placeholder="country"/>
+            <input class="wide text input" type="text" name="country" required="required" placeholder="Country"/>
         </li>
         <li class="prepend field">
             <span class="adjoined normal">Phone number</span>
-            <input class="wide text input" type="text" name="phone" required="required" placeholder="phone"/>
+            <input class="wide text input" type="text" name="phone" required="required" placeholder="Phone number"/>
         </li>
         Available only for tests... Should be only for admins
         <div class="field">
