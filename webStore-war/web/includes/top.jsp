@@ -40,7 +40,12 @@
             // default user
             } else if (0 == (Integer) session.getAttribute("userPermission")) {
 %>
-
+                
+<%
+            }
+            if (session.getAttribute("userPermission") != null) {
+%>
+                - <a href="AddUserServlet?action=logout">Logout</a></p>
 <%
             }
 %>

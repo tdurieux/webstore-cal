@@ -56,7 +56,7 @@ public class AddUserServlet extends HttpServlet {
                     out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"secondary alert\">"+pseudo + " added as " + permission_lvl + " !</li></div></div>").toString());   
                     users.addUser(pseudo, password, permission);
                 }
-            } if ("login".equals(request.getParameter("action"))) { 
+            } else if ("login".equals(request.getParameter("action"))) { 
                 String pseudo = request.getParameter("pseudo");
                 String password = request.getParameter("password");
                 if (pseudo.equals("") || password.equals("")) {
@@ -74,6 +74,10 @@ public class AddUserServlet extends HttpServlet {
                         out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"danger alert\">Wrong login or password !</li></div></div>").toString()); 
                     }
                 }
+            } else if ("logout".equals(request.getParameter("action"))) { 
+                session.setAttribute("userPseudo", null);
+                session.setAttribute("userPermission", null);
+                out.println(new PageWeb("<div class=\"row center_text\"><div class=\"centered four columns\"><li class=\"secondary alert\">You are now unconnected !</li></div></div>").toString());
             }
         } finally {            
             out.close();
